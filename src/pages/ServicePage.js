@@ -1,7 +1,7 @@
 import useService from '../hooks/useService';
 import { useParams } from 'react-router-dom';
 import { ErrorMessage } from '../components/ErrorMessage';
-import { Service } from '../components/Service';
+import { OneService } from '../components/OneService';
 
 export const ServicePage = () => {
   const { id } = useParams();
@@ -15,7 +15,7 @@ export const ServicePage = () => {
     <section>
       <h1>The service is from {service.idUser} </h1>
       <p>Aquí va la información del servicio seleccionado</p>
-      <Service service={service} />
+      <OneService service={service} />
     </section>
   );
 };
