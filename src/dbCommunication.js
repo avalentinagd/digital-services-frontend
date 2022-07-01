@@ -43,11 +43,29 @@ export const registerUser = async ({
     mode: 'cors',
     body: formData,
   });
-  console.log('Estamos por aquí');
 
   const json = await response.json();
 
   if (!response.ok) {
     throw new Error(json.message);
   }
+};
+
+export const loginUser = async ({ email, password }) => {
+  const response = await fetch('http://localhost:4000/login', {
+    method: 'POST',
+    mode: 'cors',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ email, password }),
+  });
+
+  const json = await response.json();
+
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+
+  return json.data;
 };
