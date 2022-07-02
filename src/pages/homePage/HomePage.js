@@ -1,6 +1,6 @@
-import useServices from '../hooks/useServices';
-import { ServicesList } from '../components/ServicesList';
-import { ErrorMessage } from '../components/ErrorMessage';
+import useServices from '../../hooks/useServices';
+import { ServicesList } from '../../components/ServicesList';
+import { ErrorMessage } from '../../components/ErrorMessage';
 
 export const HomePage = () => {
   const { services, loading, error } = useServices();

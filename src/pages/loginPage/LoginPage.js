@@ -1,10 +1,14 @@
-import { useState } from 'react';
-import { loginUser } from '../dbCommunication';
+import { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { TokenContext } from '../../context/TokenContext';
+import { loginUser } from '../../dbCommunication';
 
 export const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const { login } = useContext(TokenContext);
+  const navigate = useNavigate();
 
   const handleForm = async (e) => {
     e.preventDefault();
@@ -12,7 +16,10 @@ export const LoginPage = () => {
 
     try {
       const data = await loginUser({ email, password });
-      console.log(data);
+
+      console.log(data.token);
+      login(data.token);
+      navigate('/');
     } catch (error) {
       setError(error.message);
     }

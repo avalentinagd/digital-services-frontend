@@ -1,7 +1,7 @@
-import useService from '../hooks/useService';
+import useService from '../../hooks/useService';
 import { useParams } from 'react-router-dom';
-import { ErrorMessage } from '../components/ErrorMessage';
-import { OneService } from '../components/OneService';
+import { ErrorMessage } from '../../components/ErrorMessage';
+import { OneService } from '../../components/OneService';
 
 export const ServicePage = () => {
   const { id } = useParams();
