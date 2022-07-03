@@ -7,6 +7,7 @@ import { RegisterPage } from './pages/registerPage/RegisterPage';
 import { LoginPage } from './pages/loginPage/LoginPage';
 import { ServicePage } from './pages/servicePage/ServicePage';
 import { NotFoundPage } from './pages/notFoundPage/NotFoundPage';
+import { CreateServicePage } from './pages/createServicePage/CreateServicePage';
 
 function App() {
   return (
@@ -17,11 +18,10 @@ function App() {
         <Route path='/users' element={<RegisterPage />} />
         <Route path='/login' element={<LoginPage />} />
         <Route path='/services/:idService' element={<ServicePage />} />
+        <Route path='/services' element={<CreateServicePage />} />
 
         <Route path='/users/:idUser' element={<p>getUser</p>} />
         <Route path='/users/:idUser' element={<p>manageProfil</p>} />
-        <Route path='/services' element={<p>listServices</p>} />
-        <Route path='/services' element={<p>createService</p>} />
         <Route
           path='//services/:idService/filecompleted'
           element={<p>uploadFileCompleted</p>}

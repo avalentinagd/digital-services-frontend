@@ -85,3 +85,33 @@ export const getOwnUser = async ({ token }) => {
 
   return data;
 };
+
+export const createNewService = async ({
+  title,
+  description,
+  file,
+  statusService,
+  token,
+}) => {
+  const formData = new FormData();
+
+  formData.append('title', title);
+  formData.append('description', description);
+  formData.append('file', file);
+  formData.append('statusService', statusService);
+
+  const response = await fetch('http://localhost:4000/services', {
+    method: 'POST',
+    mode: 'cors',
+    body: formData,
+    headers: {
+      Authorization: token,
+    },
+  });
+
+  const json = await response.json();
+
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+};
