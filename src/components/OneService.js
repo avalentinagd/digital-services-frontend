@@ -1,23 +1,23 @@
-import { Link } from 'react-router-dom';
-
 export const OneService = ({ service }) => {
   return (
     <article>
-      <Link to={`/services/${service.id}`}>
-        <h2>Título: {service.title}</h2>
-      </Link>
-      <p>Descripción del servicio: {service.description}</p>
+      <h2>Título: {service[0].title}</h2>
 
-      {service.file ? (
-        <a href={`http://localhost:4000/${service.file}`} download>
+      <p>Descripción del servicio: {service[0].description}</p>
+
+      {service[0].file ? (
+        <a href={`http://localhost:4000/${service[0].file}`} download>
           Descargar archivo
         </a>
       ) : null}
 
-      <p>Estatus del servicio: {service.statusService}</p>
-      <p>Id del Usuario: {service.idUser}</p>
-
-      <p>Fecha de creación: {service.createdAt}</p>
+      <p>Estatus del servicio: {service[0].statusService}</p>
+      <p>Id del Usuario: {service[0].idUser}</p>
+      {/* <p>
+        {console.log(user.name)}
+        Crteate by <Link to={`/users/${user.id}`}>{user.name}</Link> on{' '}
+        {service.createdAt}.
+      </p> */}
     </article>
   );
 };
