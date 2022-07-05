@@ -45,6 +45,7 @@ export const RegisterPage = () => {
             onChange={(e) => setName(e.target.value)}
           />
         </fieldset>
+
         <fieldset>
           <label htmlFor='email'>Email</label>
           <input
@@ -56,6 +57,7 @@ export const RegisterPage = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </fieldset>
+
         <fieldset>
           <label htmlFor='biography'>Biography</label>
           <textarea
@@ -68,16 +70,29 @@ export const RegisterPage = () => {
             onChange={(e) => setBiography(e.target.value)}
           />
         </fieldset>
+
         <fieldset>
           <label htmlFor='photo'>Your Photo</label>
           <input
             type='file'
             id='photo'
             name='photo'
+            accept='image/*'
             required
             onChange={(e) => setPhoto(e.target.files[0])}
           />
+
+          {photo ? (
+            <figure>
+              <img
+                src={URL.createObjectURL(photo)}
+                style={{ width: '100px' }}
+                alt='Preview'
+              />
+            </figure>
+          ) : null}
         </fieldset>
+
         <fieldset>
           <label htmlFor='password'>Password</label>
           <input

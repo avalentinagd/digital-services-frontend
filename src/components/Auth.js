@@ -7,7 +7,14 @@ export const Auth = () => {
 
   return user ? (
     <p>
-      Logged in as <Link to={`/users/${user.id}`}>{user.name} </Link>{' '}
+      <Link to={`/users/${user.id}`}>
+        {user.name}
+        <img
+          src={`http://localhost:4000/${user.photo}`}
+          alt='Profile'
+          width='40'
+        />
+      </Link>{' '}
       <button onClick={() => logout()}>Logout</button>
     </p>
   ) : (

@@ -7,10 +7,8 @@ export const CreateServicePage = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState();
   const [file, setFile] = useState(null);
-  const [statusService, setStatusService] = useState('pending');
   const [error, setError] = useState('');
   const [creating, setCreating] = useState(false);
-
   const { token } = useContext(TokenContext);
   const navigate = useNavigate();
 
@@ -25,11 +23,10 @@ export const CreateServicePage = () => {
         title,
         description,
         file,
-        statusService,
         token,
       });
 
-      console.log(statusService);
+      console.log(title);
     } catch (error) {
       setError(error.message);
     } finally {
@@ -72,21 +69,6 @@ export const CreateServicePage = () => {
           required
           onChange={(e) => setFile(e.target.files[0])}
         />
-      </fieldset>
-
-      <fieldset>
-        <label htmlFor='statusService'>Status service</label>
-        <select
-          type='statusService'
-          id='statusService'
-          name='statusService'
-          placeholder='Your status'
-          required
-          onChange={(e) => setStatusService(e.target.value)}
-        >
-          <option value='pending'>Pending</option>
-          <option value='resolved'>Resolved</option>
-        </select>
       </fieldset>
 
       <button>Create</button>

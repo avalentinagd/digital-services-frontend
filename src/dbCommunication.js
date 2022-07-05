@@ -98,19 +98,12 @@ export const getUser = async (id) => {
   return json.data;
 };
 
-export const createNewService = async ({
-  title,
-  description,
-  file,
-  statusService,
-  token,
-}) => {
+export const createNewService = async ({ title, description, file, token }) => {
   const formData = new FormData();
 
   formData.append('title', title);
   formData.append('description', description);
   formData.append('file', file);
-  formData.append('statusService', statusService);
 
   const response = await fetch('http://localhost:4000/services', {
     method: 'POST',
