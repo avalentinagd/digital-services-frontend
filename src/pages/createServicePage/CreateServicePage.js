@@ -1,5 +1,5 @@
-import { useContext, useState } from 'react';
-import { TokenContext } from '../../context/TokenContext';
+import { useState } from 'react';
+import { useToken } from '../../context/TokenContext';
 import { createNewService } from '../../dbCommunication';
 import { useNavigate } from 'react-router-dom';
 
@@ -9,7 +9,7 @@ export const CreateServicePage = () => {
   const [file, setFile] = useState(null);
   const [error, setError] = useState('');
   const [creating, setCreating] = useState(false);
-  const { token } = useContext(TokenContext);
+  const [token] = useToken();
   const navigate = useNavigate();
 
   const handleForm = async (e) => {

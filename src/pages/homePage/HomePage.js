@@ -1,14 +1,12 @@
 import useServices from '../../hooks/useServices';
 import { ServicesList } from '../../components/ServicesList';
 import { ErrorMessage } from '../../components/ErrorMessage';
-import { useContext } from 'react';
-import { TokenContext } from '../../context/TokenContext';
 import { Link } from 'react-router-dom';
+import { useToken } from '../../context/TokenContext';
 
 export const HomePage = () => {
   const { services, loading, error } = useServices();
-  const { user } = useContext(TokenContext);
-
+  const [token] = useToken();
   if (loading) return <p>Cargando la lista de todos los servicios</p>;
   if (error) return <ErrorMessage message={error} />;
 
@@ -16,7 +14,7 @@ export const HomePage = () => {
     <section>
       <h1>List services</h1>
 
-      {user ? (
+      {token ? (
         <Link to='/services'>
           <button>Crear un servicio</button>
         </Link>

@@ -1,13 +1,13 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { TokenContext } from '../../context/TokenContext';
+import { useToken } from '../../context/TokenContext';
 import { loginUser } from '../../dbCommunication';
 
 export const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const { login } = useContext(TokenContext);
+  const [, setToken] = useToken();
   const navigate = useNavigate();
 
   const handleForm = async (e) => {
@@ -18,19 +18,21 @@ export const LoginPage = () => {
       const data = await loginUser({ email, password });
 
       console.log(data.token);
-      login(data.token);
-      navigate('/');
+
+      setToken(data.token);
     } catch (error) {
       setError(error.message);
+    } finally {
+      navigate('/');
     }
   };
 
   return (
-    <section>
-      <h1>Login</h1>
+    <section className='formLoginPage'>
       <form onSubmit={handleForm}>
+        <h1>Login</h1>
         <fieldset>
-          <label htmlFor='email'>Email</label>
+          <label htmlFor='email'></label>
           <input
             type='email'
             id='email'
@@ -42,7 +44,7 @@ export const LoginPage = () => {
         </fieldset>
 
         <fieldset>
-          <label htmlFor='password'>Password</label>
+          <label htmlFor='password'></label>
           <input
             type='password'
             id='password'
@@ -53,7 +55,8 @@ export const LoginPage = () => {
           />
         </fieldset>
 
-        <button>Login</button>
+        <button className='ButtonLoginPage'>Login</button>
+
         {error ? <p>{error}</p> : null}
       </form>
     </section>
