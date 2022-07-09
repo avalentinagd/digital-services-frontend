@@ -1,9 +1,15 @@
-import useUser from '../hooks/useUser';
+import useOwnUser from '../hooks/useOwnUser';
 import { Link } from 'react-router-dom';
+import { updateServiceStatus } from '../dbCommunication';
+import { useToken } from '../context/TokenContext';
+import useUser from '../hooks/useUser';
 
 export const OneService = ({ service }) => {
+  const [token] = useToken();
+  const ownUser = useOwnUser(token);
   const { user } = useUser(service[0].idUser);
   console.log(user);
+  console.log(ownUser);
 
   return user ? (
     <article>
@@ -18,6 +24,21 @@ export const OneService = ({ service }) => {
           ) : null}
         </li>
         <li>Estatus del servicio: {service[0].statusService}</li>
+
+        {user.id === ownUser.id ? (
+          <li>
+            <button
+              onClick={async () => {
+                if (window.confirm('Are you sure?')) {
+                  await updateServiceStatus(service[0].id, token);
+                }
+              }}
+            >
+              Marcar como resuelto
+            </button>
+          </li>
+        ) : null}
+
         <li>
           This service was created by{' '}
           <Link to={`/users/${user.id}`}>

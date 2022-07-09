@@ -169,3 +169,24 @@ export const createCommentsAndFileCompleted = async ({
     throw new Error(json.message);
   }
 };
+
+export const updateServiceStatus = async (idService, token) => {
+  const response = await fetch(
+    `http://localhost:4000/services/${idService}/resolved`,
+    {
+      method: 'PUT',
+      mode: 'cors',
+      headers: {
+        Authorization: token,
+      },
+    }
+  );
+
+  const json = await response.json();
+
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+
+  return json.data;
+};

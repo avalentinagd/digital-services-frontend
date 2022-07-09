@@ -6,7 +6,6 @@ export const AllComments = ({ comments }) => {
       {comments.map((comment) => (
         <li key={comment.id}>
           <p>{comment.text}</p>
-          <p>{comment.fileCompleted}</p>
           <li>
             {comment.fileCompleted ? (
               <a
@@ -17,7 +16,7 @@ export const AllComments = ({ comments }) => {
               </a>
             ) : null}
           </li>
-          <p>{comment.createdAt}</p>
+          <p>Create on {comment.createdAt}</p>
         </li>
       ))}
     </ul>
