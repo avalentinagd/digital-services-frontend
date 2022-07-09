@@ -120,3 +120,52 @@ export const createNewService = async ({ title, description, file, token }) => {
     throw new Error(json.message);
   }
 };
+
+export const getAllComments = async (idService, token) => {
+  const response = await fetch(
+    `http://localhost:4000/services/${idService}/comments`,
+    {
+      headers: {
+        Authorization: token,
+      },
+    }
+  );
+
+  const { data } = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.message);
+  }
+
+  return data;
+};
+
+export const createCommentsAndFileCompleted = async ({
+  text,
+  fileCompleted,
+  token,
+  idService,
+}) => {
+  const formData = new FormData();
+
+  formData.append('text', text);
+  formData.append('fileCompleted', fileCompleted);
+
+  const response = await fetch(
+    `http://localhost:4000/services/${idService}/filecompleted`,
+    {
+      method: 'POST',
+      mode: 'cors',
+      body: formData,
+      headers: {
+        Authorization: token,
+      },
+    }
+  );
+
+  const json = await response.json();
+
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+};
