@@ -12,7 +12,7 @@ import { UserPage } from './pages/userPage/UserPage';
 
 function App() {
   return (
-    <body>
+    <div>
       <Header />
       <main>
         <Routes>
@@ -29,7 +29,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
-    </body>
+    </div>
   );
 }
 

@@ -37,6 +37,7 @@ export const RegisterPage = () => {
         <fieldset>
           <label htmlFor='name'>Name</label>
           <input
+            value={name}
             type='text'
             id='name'
             name='name'
@@ -49,6 +50,7 @@ export const RegisterPage = () => {
         <fieldset>
           <label htmlFor='email'>Email</label>
           <input
+            value={email}
             type='email'
             id='email'
             name='email'
@@ -74,6 +76,7 @@ export const RegisterPage = () => {
         <fieldset>
           <label htmlFor='photo'>Your Photo</label>
           <input
+            value={photo}
             type='file'
             id='photo'
             name='photo'
@@ -96,6 +99,7 @@ export const RegisterPage = () => {
         <fieldset>
           <label htmlFor='password'>Password</label>
           <input
+            value={password}
             type='password'
             id='password'
             name='password'

@@ -40,6 +40,7 @@ export const CreateServicePage = () => {
       <fieldset>
         <label htmlFor='title'>Title</label>
         <input
+          value={title}
           type='text'
           id='title'
           name='title'
@@ -52,6 +53,7 @@ export const CreateServicePage = () => {
       <fieldset>
         <label htmlFor='description'>Description</label>
         <textarea
+          value={description}
           id='description'
           name='description'
           placeholder='The description'
@@ -63,6 +65,7 @@ export const CreateServicePage = () => {
       <fieldset>
         <label htmlFor='file'>File</label>
         <input
+          value={file}
           type='file'
           id='file'
           name='file'

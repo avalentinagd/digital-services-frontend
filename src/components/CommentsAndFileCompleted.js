@@ -36,6 +36,7 @@ export const CommentsAndFileCompleted = () => {
       <fieldset>
         <label htmlFor='text'>Text</label>
         <textarea
+          value={text}
           id='text'
           name='text'
           placeholder='The text'
@@ -47,6 +48,7 @@ export const CommentsAndFileCompleted = () => {
       <fieldset>
         <label htmlFor='fileCompleted'>FileCompleted</label>
         <input
+          value={fileCompleted}
           type='file'
           id='fileCompleted'
           name='fileCompleted'

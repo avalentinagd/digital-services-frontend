@@ -11,11 +11,12 @@ export const OneService = ({ service }) => {
   console.log(user);
   console.log(ownUser);
 
-  return user ? (
+  return ownUser ? (
     <article>
       <h2>Título: {service[0].title}</h2>
       <ul>
         <li>Descripción del servicio: {service[0].description}</li>
+
         <li>
           {service[0].file ? (
             <a href={`http://localhost:4000/${service[0].file}`} download>
@@ -23,6 +24,7 @@ export const OneService = ({ service }) => {
             </a>
           ) : null}
         </li>
+
         <li>Estatus del servicio: {service[0].statusService}</li>
 
         {user.id === ownUser.id ? (
@@ -52,5 +54,23 @@ export const OneService = ({ service }) => {
         </li>
       </ul>
     </article>
+  ) : user ? (
+    <div>
+      <p>Holaaaaaaaaaaaaaaaaaa</p>
+      <h2>Título: {service[0].title}</h2>
+      <li>Descripción del servicio: {service[0].description}</li>
+      <li>Estatus del servicio: {service[0].statusService}</li>
+      <li>
+        This service was created by{' '}
+        <Link to={`/users/${user.id}`}>
+          {user.name}{' '}
+          <img
+            src={`http://localhost:4000/${user.photo}`}
+            alt='Profile'
+            width='40'
+          />
+        </Link>
+      </li>
+    </div>
   ) : null;
 };
