@@ -1,30 +1,27 @@
+import './ServicePage.css';
 import useService from '../../hooks/useService';
 import { useParams } from 'react-router-dom';
 import { ErrorMessage } from '../../components/ErrorMessage';
-import { OneService } from '../../components/OneService';
+import { OneService } from '../../components/oneService/OneService';
 import { AllComments } from '../../components/AllComments';
 import useComments from '../../hooks/useComments';
-import { CommentsAndFileCompleted } from '../../components/CommentsAndFileCompleted';
-import { useToken } from '../../context/TokenContext';
-import useOwnUser from '../../hooks/useOwnUser';
+import { CommentsAndFileCompleted } from '../../components/commentsAndFileCompleted/CommentsAndFileCompleted';
 
 export const ServicePage = () => {
-  const { idService } = useParams();
-  const { service, loading, error } = useService(idService);
-  const { comments } = useComments(idService);
-  const [token] = useToken();
-  const ownUser = useOwnUser(token);
-  console.log(service);
+    const { idService } = useParams();
+    const { service, loading, error } = useService(idService);
+    const { comments } = useComments(idService);
 
-  if (loading) return <p>Cargando el servicio seleccionado...</p>;
-  if (error) return <ErrorMessage message={error} />;
+    console.log(service);
 
-  return (
-    <section>
-      <OneService service={service} />
-      {ownUser ? <CommentsAndFileCompleted /> : null}
+    if (loading) return <p>Cargando el servicio seleccionado...</p>;
+    if (error) return <ErrorMessage message={error} />;
 
-      <AllComments comments={comments} />
-    </section>
-  );
+    return (
+        <section className="servicePage">
+            <OneService service={service} />
+            <CommentsAndFileCompleted />
+            <AllComments comments={comments} />
+        </section>
+    );
 };

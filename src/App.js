@@ -11,26 +11,32 @@ import { CreateServicePage } from './pages/createServicePage/CreateServicePage';
 import { UserPage } from './pages/userPage/UserPage';
 
 function App() {
-  return (
-    <div>
-      <Header />
-      <main>
-        <Routes>
-          <Route path='/' element={<HomePage />} />
-          <Route path='/users' element={<RegisterPage />} />
-          <Route path='/login' element={<LoginPage />} />
-          <Route path='/services/:idService' element={<ServicePage />} />
-          <Route path='/services' element={<CreateServicePage />} />
-          <Route path='/users/:idUser' element={<UserPage />} />
+    return (
+        <div className="app">
+            <Header />
+            <main>
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/users" element={<RegisterPage />} />
+                    <Route path="/login" element={<LoginPage />} />
+                    <Route
+                        path="/services/:idService"
+                        element={<ServicePage />}
+                    />
+                    <Route path="/services" element={<CreateServicePage />} />
+                    <Route path="/users/:idUser" element={<UserPage />} />
 
-          <Route path='/users/profile' element={<p>manageProfil</p>} />
+                    <Route
+                        path="/users/profile"
+                        element={<p>manageProfil</p>}
+                    />
 
-          <Route path='*' element={<NotFoundPage />} />
-        </Routes>
-      </main>
-      <Footer />
-    </div>
-  );
+                    <Route path="*" element={<NotFoundPage />} />
+                </Routes>
+            </main>
+            <Footer />
+        </div>
+    );
 }
 
 export default App;

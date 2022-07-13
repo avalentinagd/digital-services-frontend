@@ -1,0 +1,144 @@
+/*#### ARTICLE ONE SERVICES ########*/
+
+.articleOneServices {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0 1.3vmin;
+}
+
+/*#### UL ONE SERVICES ########*/
+
+.ulOneServices {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 18rem;
+    padding: 3vmin 2vmin;
+    min-height: 50vh;
+    margin: 3vmin 0vmin;
+    box-shadow: inset 0 0 15px 0 var(--blue-color);
+}
+
+/*####  FIGURE DESCRIPTION ONE SERVICES ########*/
+
+.imagenOneService,
+.descriptionUlOneService {
+    border-radius: 1vmin;
+    margin: 0.5vmin 0vmin;
+    padding: 1vmin;
+    text-align: center;
+    position: relative;
+    width: 100%;
+}
+
+.imagenOneService {
+    background-color: var(--blue-color);
+}
+
+.descriptionUlOneService > h2 {
+    color: var(--blue-color);
+    font-size: var(--custom-font-size);
+}
+
+.descriptionUlOneService > li > p {
+    font-size: var(--custom-font-size);
+    font-weight: 400;
+}
+
+.imagenOneService > .linkOneServices {
+    text-decoration: none;
+    color: var(--grey3-color);
+    font-size: var(--h1-custom-font-size);
+}
+.imagenOneService > .linkOneServices > figure {
+    width: 100%;
+}
+
+.imagenOneService > .linkOneServices > figure > img {
+    border-radius: 50%;
+    width: 100%;
+    border: 1px solid var(--grey3-color);
+}
+
+.imagenOneService > .linkOneServices > figure > figcaption {
+    font-size: var(--h1-custom-font-size);
+}
+
+.imagenOneService .linkOneServices > h4 {
+    margin: 0.7vmin;
+}
+
+.descriptionUlOneService > li {
+    margin: 5vmin 1.3vmin;
+    list-style-type: none;
+}
+.descriptionUlOneService > li > .aDownloadFile {
+    text-decoration: none;
+    font-weight: 500;
+    color: var(--blue-color);
+    box-shadow: inset 0 0 15px 0 var(--blue-color);
+    background-color: rgba(231, 232, 235, 0.7);
+    border-radius: 10px;
+    padding: 0.5rem;
+}
+
+/**
+ * #########################
+ * ## MEDIA QUERY >700px ##
+ * #########################
+*/
+
+@media (min-width: 700px) {
+    :root {
+        --custom-font-size: 2.5vmin;
+        --h1-custom-font-size: 4vmin;
+    }
+
+    .ulOneServices {
+        width: 60%;
+        margin: 1.5vmin;
+    }
+    .imagenOneService {
+        float: left;
+        width: 30%;
+        margin-right: 0.5vmin;
+    }
+
+    .imagenOneService > .linkOneServices > figure {
+        width: 45%;
+        padding: 1vmin;
+    }
+
+    .descriptionUlOneService {
+        float: right;
+        width: 55%;
+    }
+}
+
+/**
+ * #########################
+ * ## MEDIA QUERY >1025px ##
+ * #########################
+*/
+
+@media (min-width: 1025px) {
+    :root {
+        --custom-font-size: 2.5vmin;
+        --h1-custom-font-size: 3vmin;
+    }
+    .ulOneServices {
+        width: 65%;
+        margin: 1.5rem;
+    }
+
+    .imagenOneService > .linkOneServices > figure {
+        width: 35%;
+    }
+
+    .descriptionUlOneService {
+        width: 55%;
+    }
+}
